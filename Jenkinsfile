@@ -8,7 +8,7 @@ pipeline {
     }
     stage('build maven') {
       steps {
-        sh 'mvn install'
+        dockerNode(image: 'maven:3.3.9-jdk-8')
       }
     }
   }
