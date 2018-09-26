@@ -6,5 +6,10 @@ pipeline {
         echo 'c\'est une initialisation '
       }
     }
+    stage('build maven') {
+      steps {
+        sh 'mvn install'
+      }
+    }
   }
 }
