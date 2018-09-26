@@ -6,9 +6,9 @@ pipeline {
         echo 'c\'est une initialisation '
       }
     }
-    stage('build maven') {
+    stage('clone git') {
       steps {
-        dockerNode(image: 'maven:3.3.9-jdk-8')
+        git(url: 'https://github.com/mamoone/lokako', branch: 'master', poll: true)
       }
     }
   }
