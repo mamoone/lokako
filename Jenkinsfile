@@ -11,5 +11,10 @@ pipeline {
         git(url: 'https://github.com/mamoone/lokako', branch: 'master', poll: true)
       }
     }
+    stage('mvn build') {
+      steps {
+        sh 'mvn install'
+      }
+    }
   }
 }
