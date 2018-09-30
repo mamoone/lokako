@@ -11,9 +11,9 @@ pipeline {
         git(url: 'https://github.com/mamoone/lokako', branch: 'master', poll: true)
       }
     }
-    stage('mvn build') {
+    stage('build mvn') {
       steps {
-        sh 'mvn install'
+        readMavenPom(file: 'pom.xml')
       }
     }
   }
