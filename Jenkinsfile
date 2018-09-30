@@ -12,8 +12,17 @@ pipeline {
       }
     }
     stage('build mvn') {
-      steps {
-        readMavenPom(file: 'pom.xml')
+      parallel {
+        stage('build mvn') {
+          steps {
+            readMavenPom(file: 'pom.xml')
+          }
+        }
+        stage('install mvn') {
+          steps {
+            bat 'mvn install'
+          }
+        }
       }
     }
   }
